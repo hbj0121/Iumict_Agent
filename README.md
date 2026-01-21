@@ -3,14 +3,14 @@ markdown
 PLC(Modbus) 기반 실시간 수위 모니터링 및 자동 제어 시스템
 ## 📦 프로젝트 구조
 smart-water-plc/
-├── src/
-│   ├── core/
-│   ├── infrastructure/    # 외부 시스템 (PLC, DB, AI)
-│   ├── application/       # API & UI
-│   └── config/
-├── tests/                
-├── docs/                 
-└── scripts/              
+#├── src/
+#│   ├── core/
+#│   ├── infrastructure/    # 외부 시스템 (PLC, DB, AI)
+#│   ├── application/       # API & UI
+#│   └── config/
+#├── tests/                
+#├── docs/                 
+#└── scripts/              
 
 
 ## 🛠 설치 및 실행
