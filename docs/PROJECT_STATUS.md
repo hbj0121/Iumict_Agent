@@ -117,9 +117,9 @@ a831580  mkdir 작업
 ## 6. 🗺️ 다음 개발 후보
 
 - [x] ~~`pyproject.toml` 등 의존성 파일 커밋 + `docker-compose.yml` 비밀번호를 `.env`/환경변수로 이전~~ ✅ 2026-07-09
-- [ ] 🔴 RAG 라우터를 API에 등록하고 UI(`rag_page.py`)와 실제 연결 확인
-- [ ] 🟡 Streamlit 내비게이션 방식 하나로 통일 (`app.py` 단일 진입 vs `pages/` 표준 멀티페이지)
-- [ ] 🟡 `settings.py`에 `API_BASE_URL` 필드 추가
+- [x] ~~RAG 라우터를 API에 등록하고 UI와 실제 연결 확인~~ ✅ 2026-07-09
+- [x] ~~`settings.py`에 `API_BASE_URL` 필드 추가~~ ✅ 2026-07-09
+- [x] ~~Streamlit 내비게이션 방식 하나로 통일~~ ✅ 2026-07-09 (`pages/` 표준 멀티페이지로 통일, 5개 페이지)
 - [ ] 🟡 DB 레이어 동기 전환에 맞춰 루트 스크립트(`main.py` 등) 정리 또는 삭제
 - [ ] 🔵 `PredictionHistory` 관련 예측 기능 구현 (모델은 이미 존재)
 - [ ] 🔵 하드웨어/RAG/리포지토리 계층 pytest 테스트 추가
