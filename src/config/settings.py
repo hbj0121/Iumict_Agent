@@ -117,9 +117,16 @@ class AppSettings(BaseSettings):
     # API 서버
     api_host: str = Field(default='0.0.0.0')
     api_port: int = Field(default=8000)
+    api_base_url: str = Field(default='http://localhost:8000', alias='API_BASE_URL')
 
     # 보안
     secret_key: str = Field(default='dev-secret-key')
+
+    # RAG 파이프라인
+    RAG_CHUNK_SIZE: int = Field(default=500)
+    RAG_CHUNK_OVERLAP: int = Field(default=50)
+    RAG_TOP_K: int = Field(default=5)
+    RAG_SCORE_THRESHOLD: float = Field(default=0.7)
 
     # 하위 설정들 (자동으로 .env 읽음)
     hardware: HardwareSettings = Field(default_factory=HardwareSettings)

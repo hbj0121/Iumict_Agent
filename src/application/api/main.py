@@ -6,7 +6,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 
 from src.config.settings import get_settings
-from src.application.api.routes import hardware
+from src.application.api.routes import hardware, rag
+from src.core.services.rag_service import RAGService
 
 settings = get_settings()
 
@@ -27,12 +28,20 @@ async def lifespan(app: FastAPI):
     await _controller.connect()
     print(f"✅ 하드웨어 연결 완료: {type(_controller).__name__}")
 
+    rag_service = RAGService()
+    await rag_service.startup()
+    app.state.rag = rag_service
+    print("✅ RAGService 초기화 완료")
+
     yield
 
     # Shutdown
     if _controller:
         await _controller.disconnect()
         print("✅ 하드웨어 연결 해제")
+
+    await app.state.rag.shutdown()
+    print("✅ RAGService 종료")
 
 
 app = FastAPI(
@@ -82,6 +91,7 @@ async def health_check():
 # ============================================
 
 app.include_router(hardware.router)
+app.include_router(rag.router)
 
 # ============================================
 # 개발 서버 실행
